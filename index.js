@@ -20,18 +20,21 @@ function getDrink() {
             document.querySelector('.drink-img').src = data.drinks[0].strDrinkThumb;
         } else{
             const renderDrinkInfo = async () => {
-                for (let i = 0; i < data.drinks.length; i++) {
+                //high level stuff gets executed synchronously
+                //Render first cocktail card to the DOM
+                document.querySelector('.drink-name').innerText = data.drinks[0].strDrink; 
+                document.querySelector('.instructions-text').innerText = data.drinks[0].strInstructions;
+                document.querySelector('.drink-img').src = data.drinks[0].strDrinkThumb;
+
+                //Loop through the remaining drinks in the array at 5s intervals
+                for (let i = 1; i < data.drinks.length; i++) {
+                    await delay(3000);
+
                     document.querySelector('.drink-name').innerText = data.drinks[i].strDrink; 
                     document.querySelector('.instructions-text').innerText = data.drinks[i].strInstructions;
                     document.querySelector('.drink-img').src = data.drinks[i].strDrinkThumb;
-                    
-                    await delay(5000);
     
-                    document.querySelector('.drink-name').innerText = data.drinks[i].strDrink; 
-                    document.querySelector('.instructions-text').innerText = data.drinks[i].strInstructions;
-                    document.querySelector('.drink-img').src = data.drinks[i].strDrinkThumb;
-    
-                    console.log(data.drinks[i]);
+                    console.log(i, data.drinks[i]);
                 }
             }
             renderDrinkInfo();
