@@ -5,6 +5,10 @@ document.querySelector('button').addEventListener('click', getDrink);
 function getDrink() {
     let drink = document.querySelector('input').value;
 
+    const delay = (time) => {
+        return new Promise ((resolve) => setTimeout(resolve,time));
+    }
+
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
     .then(res => res.json()) // parse response as JSON
     .then(data => {
