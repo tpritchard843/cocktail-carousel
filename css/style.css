@@ -1,0 +1,32 @@
+/******************************************
+/* CSS
+/*******************************************/
+
+/* Box Model Hack */
+*{
+    box-sizing: border-box;
+  }
+  
+  /******************************************
+  /* LAYOUT
+  /*******************************************/
+  img{
+    display: block;
+    margin: 0;
+    height: 200px;
+  }
+  
+  .cocktail-modal {
+    background: blueviolet;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    
+  }
+  
+  
+  /******************************************
+  /* ADDITIONAL STYLES
+  /*******************************************/
+  
+  
