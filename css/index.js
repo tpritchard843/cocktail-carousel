@@ -13,13 +13,21 @@ function getDrink() {
     .then(res => res.json()) // parse response as JSON
     .then(data => {
         console.log(data.drinks);
+        
+        if (data.drinks.length < 2) {
+            document.querySelector('.drink-name').innerText = data.drinks[0].strDrink; 
+            document.querySelector('.instructions-text').innerText = data.drinks[0].strInstructions;
+            document.querySelector('.drink-img').src = data.drinks[0].strDrinkThumb;
+        }
 
         const renderDrinkInfo = async () => {
             for (let i = 0; i < data.drinks.length; i++) {
                 await delay(5000);
+
                 document.querySelector('.drink-name').innerText = data.drinks[i].strDrink; 
                 document.querySelector('.instructions-text').innerText = data.drinks[i].strInstructions;
                 document.querySelector('.drink-img').src = data.drinks[i].strDrinkThumb;
+
                 console.log(data.drinks[i])
             }
         }
