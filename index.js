@@ -21,6 +21,10 @@ function getDrink() {
         } else{
             const renderDrinkInfo = async () => {
                 for (let i = 0; i < data.drinks.length; i++) {
+                    document.querySelector('.drink-name').innerText = data.drinks[i].strDrink; 
+                    document.querySelector('.instructions-text').innerText = data.drinks[i].strInstructions;
+                    document.querySelector('.drink-img').src = data.drinks[i].strDrinkThumb;
+                    
                     await delay(5000);
     
                     document.querySelector('.drink-name').innerText = data.drinks[i].strDrink; 
