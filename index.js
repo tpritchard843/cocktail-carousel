@@ -13,7 +13,7 @@ function getDrink() {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
     .then(res => res.json()) // parse response as JSON
     .then(data => {
-        console.log(data.drinks);
+        console.log(data.drinks); //array of drinks in the category the user searches
 
         if (data.drinks.length < 2) {
             document.querySelector('.drink-name').innerText = data.drinks[0].strDrink; 
