@@ -44,5 +44,5 @@ function getDrink() {
 }
 
 function displayDrinkModal() {
-    document.querySelector('#cocktail-modal').classList.remove('hidden')
+    document.querySelector('#cocktail-modal').classList.remove('hidden');
 }
