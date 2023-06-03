@@ -1,4 +1,4 @@
-//The user will enter a coktail. Our program will fetch cocktail name, photo, instructions, and ingredients and place them the DOM.
+//The user will enter a cocktail or drink type to the searchbar. Our program will fetch cocktail name, photo, instructions, and ingredients and place them the DOM.
 
 document.querySelector('button').addEventListener('click', getDrink);
 document.querySelector('button').addEventListener('click', displayDrinkModal);
