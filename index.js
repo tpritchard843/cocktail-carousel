@@ -13,33 +13,20 @@ function getDrink() {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
     .then(res => res.json()) // parse response as JSON
     .then(data => {
+        console.log(data)
         console.log(data.drinks); //array of drinks in the category the user searches
-
-        if (data.drinks.length < 2) {
-            document.querySelector('.drink-name').innerText = data.drinks[0].strDrink; 
-            document.querySelector('.instructions-text').innerText = data.drinks[0].strInstructions;
-            document.querySelector('.drink-img').src = data.drinks[0].strDrinkThumb;
-        } else{
             const renderDrinkInfo = async () => {
-                //high level stuff gets executed synchronously
-                //Render first cocktail card to the DOM
-                document.querySelector('.drink-name').innerText = data.drinks[0].strDrink; 
-                document.querySelector('.instructions-text').innerText = data.drinks[0].strInstructions;
-                document.querySelector('.drink-img').src = data.drinks[0].strDrinkThumb;
-
-                //Loop through the remaining drinks in the array at 5s intervals
-                for (let i = 1; i < data.drinks.length; i++) {
-                    await delay(3000);
-
+            //Loop through the drinks in the array at 5s intervals
+                for (let i = 0; i < data.drinks.length; i++) {
                     document.querySelector('.drink-name').innerText = data.drinks[i].strDrink; 
                     document.querySelector('.instructions-text').innerText = data.drinks[i].strInstructions;
                     document.querySelector('.drink-img').src = data.drinks[i].strDrinkThumb;
-    
+                    
                     console.log(i, data.drinks[i]);
+                    await delay(5000);
                 }
             }
             renderDrinkInfo();
-        } 
     })
 }
 
